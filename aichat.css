@@ -1,0 +1,136 @@
+nav {
+    background-color: #04213b;
+    padding: 1em;
+    position: relative;
+    overflow: hidden;
+    animation: waterFloatBg 6s linear infinite alternate;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1.5em;
+    font-size: 1.1em;
+    position: relative;
+    z-index: 1;
+    /* Floating animation for links */
+    animation: floatLink 3s ease-in-out infinite alternate;
+    transition: color 0.3s;
+}
+
+/* Underline effect for menu links */
+nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    border-radius: 2px;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:last-child {
+    margin-right: 0;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+    background: none;
+    filter: brightness(1.05);
+    transition: color 0.3s, filter 0.3s;
+}
+
+/* Water floating background animation */
+@keyframes waterFloatBg {
+    0% {
+        background-position: 0 0;
+        background-size: 200% 200%;
+    }
+    100% {
+        background-position: 100% 100%;
+        background-size: 200% 200%;
+    }
+}
+
+/* Floating animation for links */
+@keyframes floatLink {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    nav {
+        padding: 0.5em;
+        text-align: center;
+    }
+    nav a {
+        display: block;
+        margin: 0.5em 0;
+        font-size: 1.2em;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #6087ae;
+}
+
+.ai-title-nav {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+}
+.nav-links a {
+    font-size: 1.1em;
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 0.2em 0;
+    transition: color 0.3s;}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #e7e9ed 30%, #d8ddea 70%);
+
+    transition: width 0.3s;
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+.nav-links a:hover {
+    color: #0b3d91;
+    background: linear-gradient(90deg, #0b3d91 30%, #3b6bd1 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: brightness(1.2);
+}
