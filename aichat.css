@@ -134,3 +134,91 @@ body {
     background-clip: text;
     filter: brightness(1.2);
 }
+
+/* ===== WhatsApp-like chat styles ===== */
+.app-grid{
+    display:grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+    max-width: 1100px;
+    margin: 1.25rem auto;
+    height: calc(100vh - 2.5rem - 64px);
+    background: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(2,18,40,0.12);
+}
+
+/* Sidebar */
+.chat-list{background:#fff;padding:18px 14px;border-right:1px solid #ececec}
+.chat-list h2{margin:0 0 12px;font-size:1.2rem;color:#111}
+.chats{list-style:none;margin:0;padding:0}
+.chat-item{padding:12px;border-radius:8px;cursor:pointer;border-bottom:1px solid #f2f2f2}
+.chat-item .name{font-weight:700;color:#111}
+.chat-item .meta{color:#7b8794;font-size:0.9rem;margin-top:6px}
+.chat-item.typing .meta{font-style:italic;color:#00aaff}
+.chat-item.active{background:#f6f7f9;border-left:4px solid #6c4df5}
+
+/* Panel Header */
+.panel-header{background:#fff;padding:18px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between}
+.panel-title{font-weight:700;font-size:1.1rem;color:#111}
+.panel-status{color:#00b894;font-weight:700;font-size:0.9rem}
+
+/* Conversation panel */
+.panel-main{background:#f2f3f5;flex:1;padding:28px 34px;overflow-y:auto}
+.messages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.8rem}
+.message{display:flex;align-items:flex-end;gap:0.6rem}
+.message.bot{justify-content:flex-start}
+.message.user{justify-content:flex-end}
+
+.message .avatar.small{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#05243b;font-size:0.85rem}
+.content{display:flex;flex-direction:column;align-items:flex-start;max-width:86%}
+.sender-name{font-size:0.74rem;font-weight:700;color:rgba(0,0,0,0.75);margin-bottom:0.2rem}
+.message.user .content{align-items:flex-end}
+.message.user .sender-name{display:none}
+
+.bubble{max-width:78%;padding:0.7rem 1rem;border-radius:18px;font-size:1rem;line-height:1.25}
+.message.bot .bubble{background:#e9ecef;color:#111;border-bottom-left-radius:3px}
+.message.user .bubble{background:linear-gradient(90deg,#6c4df5,#8a63ff);color:#fff;border-bottom-right-radius:3px}
+
+.meta{font-size:0.72rem;color:rgba(0,0,0,0.45);display:flex;flex-direction:column;align-items:flex-end}
+.message.bot .meta{align-items:flex-start}
+.time{opacity:0.8;font-size:0.72rem;margin-top:0.18rem}
+
+/* Input area */
+.panel-input{display:flex;gap:12px;padding:18px;background:#fff;border-top:1px solid #eee;align-items:center}
+.panel-input input{flex:1;padding:14px 18px;border-radius:999px;border:1px solid #e9e9e9;background:#fff;outline:none;font-size:1rem}
+.panel-input .send{background:#6c4df5;color:#fff;border:none;padding:10px 18px;border-radius:999px;font-weight:700;box-shadow:0 6px 18px rgba(108,77,245,0.18);cursor:pointer}
+
+@media (max-width: 900px){
+    .app-grid{grid-template-columns:1fr;}
+    .chat-list{display:none}
+}
+
+/* participants list (header) */
+.participants-list{display:flex;gap:0.35rem;align-items:center;margin-right:0.35rem}
+.p-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#05243b;background:#cfeef0;font-size:0.8rem;border:2px solid rgba(255,255,255,0.06);cursor:pointer}
+.p-avatar:hover{transform:translateY(-2px)}
+
+/* message layout for group chat */
+.message{display:flex;align-items:flex-end;gap:0.6rem}
+.message .avatar.small{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#05243b;font-size:0.85rem}
+.content{display:flex;flex-direction:column;align-items:flex-start;max-width:86%}
+.sender-name{font-size:0.74rem;font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:0.2rem}
+.message.user .content{align-items:flex-end}
+.message.user .sender-name{display:none}
+
+/* sender select */
+#senderSelect{background:transparent;border:none;color:#fff;border-radius:8px;padding:0.35rem 0.6rem;font-size:0.95rem;border:1px solid rgba(255,255,255,0.06);min-width:90px}
+#senderSelect:focus{outline:none;box-shadow:0 0 0 2px rgba(11,61,145,0.12)}
+
+/* Removed older overlapping layout rules — responsive tweaks for panel */
+@media (max-width: 600px){
+    .app-grid{grid-template-columns:1fr}
+    .chat-list{display:none}
+    .panel-input input{font-size:0.95rem}
+}
+
+.quick-replies{display:flex;gap:0.5rem;flex-wrap:wrap;padding:0.5rem 1rem}
+.quick-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);color:#111;padding:0.4rem 0.8rem;border-radius:999px;cursor:pointer;font-size:0.92rem}
+.quick-btn:hover{background:#f0f0f0}
